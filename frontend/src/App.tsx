@@ -22,12 +22,13 @@ function App() {
   }, [isLoading])
 
   function setNewDatabase(newValue: { name: string; price: number }) {
-    axios.post(
-      'http://localhost:7001/products',
-      newValue,
-      'content-type: application/json'
-    )
-    setIsLoading(isLoading + 1)
+    axios.post('http://localhost:7001/products', newValue, {
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+
+    setIsLoading(isLoading => isLoading + 1)
   }
 
   function deleteDatabase(name: string, price: number, id: any) {
@@ -37,15 +38,16 @@ function App() {
     }
 
     axios
-      .delete(
-        `http://localhost:7001/products/${id}`,
-        deleteProduct,
-        'content-type: application/json'
-      )
+      .delete(`http://localhost:7001/products/${id}`, {
+        data: deleteProduct,
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
       .then(res => console.log(res.data))
-    setIsLoading(isLoading + 1)
-  }
 
+    setIsLoading(isLoading => isLoading + 1)
+  }
   const newProduct = {
     name: inputName,
     price: inputPrice

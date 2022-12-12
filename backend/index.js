@@ -10,7 +10,7 @@ app.use(express.json());
 
 const products = {
   products: [
-    { name: 'Bola', price: 10, id: 'rf48fj4-43dbrf-4m123v-4224vk' },
+
   ]
 }
 
