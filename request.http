@@ -1,0 +1,22 @@
+GET  http://localhost:7001/products
+
+
+
+####
+POST http://localhost:7001/products
+Content-Type: application/json
+
+{
+  "name": "Caneta",
+  "price": 10
+}
+
+####
+
+DELETE http://localhost:7001/products/b5e33b0c-3162-4826-b735-6be158694c0d
+Content-Type: application/json
+
+{
+  "name": "Caneta",
+  "price": 10
+}
